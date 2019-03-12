@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.samuvel.pandian.seithigal.R
 import com.samuvel.pandian.seithigal.entities.Articles
 
-open class HotNewsAdapter(val articles: ArrayList<Articles>, val context: Context) :
+class HotNewsAdapter(val articles: ArrayList<Articles>, val context: Context) :
     RecyclerView.Adapter<HotNewsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotNewsViewHolder {
         return HotNewsViewHolder(LayoutInflater.from(context).inflate(R.layout.hot_news_row, parent, false))
@@ -19,5 +19,8 @@ open class HotNewsAdapter(val articles: ArrayList<Articles>, val context: Contex
 
     override fun onBindViewHolder(holder: HotNewsViewHolder, position: Int) {
         holder.tvTitle?.text = articles[position].title
+        holder.tvDescription?.text = articles[position].description
+        holder.tvAuthor?.text = articles[position].author
+        holder.tvPublishedAt?.text = articles[position].publishedAt
     }
 }
