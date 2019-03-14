@@ -9,4 +9,5 @@ class HotNewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val tvDescription = itemView.description
     val tvAuthor = itemView.author
     val tvPublishedAt = itemView.published_at
+    val imageView = itemView.image_view
 }

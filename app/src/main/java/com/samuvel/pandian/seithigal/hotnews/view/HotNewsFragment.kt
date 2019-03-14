@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.samuvel.pandian.seithigal.R
 import com.samuvel.pandian.seithigal.entities.Articles
 import com.samuvel.pandian.seithigal.entities.News
@@ -21,6 +22,7 @@ class HotNewsFragment : Fragment(), HotNewsViewInteractor {
     lateinit var mHotNewsRecyclerView: RecyclerView
     lateinit var mHotNewsProgressBar: ProgressBar
     lateinit var mHotNewsErrorTextView: TextView
+    lateinit var mShimmerView : ShimmerFrameLayout
     var articles: ArrayList<Articles>? = null
     var mHotNewsPresenter: HotNewsPresenterInteractor = HotNewsPresenter()
 
@@ -39,6 +41,7 @@ class HotNewsFragment : Fragment(), HotNewsViewInteractor {
         mHotNewsRecyclerView = view.findViewById(R.id.hotNewsRecyclerView)
         mHotNewsProgressBar = view.findViewById(R.id.hotNewsProgressBar)
         mHotNewsErrorTextView = view.findViewById(R.id.hotNewsErrorTextView)
+        mShimmerView = view.findViewById(R.id.shimmer_view_container)
     }
 
     override fun onDetach() {
@@ -47,11 +50,11 @@ class HotNewsFragment : Fragment(), HotNewsViewInteractor {
     }
 
     override fun showProgress() {
-        mHotNewsProgressBar.visibility = View.VISIBLE
+        mShimmerView.startShimmerAnimation()
     }
 
     override fun hideProgress() {
-        mHotNewsProgressBar.visibility = View.GONE
+        mShimmerView.visibility = View.GONE
     }
 
     override fun populateList(news: News) {
