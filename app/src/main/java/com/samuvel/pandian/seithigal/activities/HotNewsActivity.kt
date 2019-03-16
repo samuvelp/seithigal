@@ -1,10 +1,11 @@
-package com.samuvel.pandian.seithigal
+package com.samuvel.pandian.seithigal.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.samuvel.pandian.seithigal.R
 import com.samuvel.pandian.seithigal.hotnews.view.HotNewsFragment
 
-class MainActivity : AppCompatActivity() {
+class HotNewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
