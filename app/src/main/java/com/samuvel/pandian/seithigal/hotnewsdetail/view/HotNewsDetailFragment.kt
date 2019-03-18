@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.webkit.WebView
 import androidx.fragment.app.Fragment
-import com.facebook.drawee.view.SimpleDraweeView
 import com.samuvel.pandian.seithigal.R
 import com.samuvel.pandian.seithigal.entities.Article
 
 class HotNewsDetailFragment : Fragment() {
-    lateinit var mDetailImageView: SimpleDraweeView
-    lateinit var mDetailTimeStamp: TextView
-    lateinit var mDetailTitle: TextView
-    lateinit var mDetailContent: TextView
+    //    lateinit var mDetailImageView: SimpleDraweeView
+//    lateinit var mDetailTimeStamp: TextView
+//    lateinit var mDetailTitle: TextView
+//    lateinit var mDetailContent: TextView
+    lateinit var mDetailWebView: WebView
     lateinit var mArticle: Article
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,16 +32,20 @@ class HotNewsDetailFragment : Fragment() {
     }
 
     fun initViews(view: View) {
-        mDetailImageView = view.findViewById(R.id.detail_image_view)
-        mDetailTitle = view.findViewById(R.id.detail_title)
-        mDetailTimeStamp = view.findViewById(R.id.detail_timestamp)
-        mDetailContent = view.findViewById(R.id.detail_content)
+//        mDetailImageView = view.findViewById(R.id.detail_image_view)
+//        mDetailTitle = view.findViewById(R.id.detail_title)
+//        mDetailTimeStamp = view.findViewById(R.id.detail_timestamp)
+//        mDetailContent = view.findViewById(R.id.detail_content)
+        mDetailWebView = view.findViewById(R.id.webview)
     }
-    fun setData(article: Article){
-        mDetailTitle.text = article.title
-        mDetailTimeStamp.text = article.publishedAt
-        mDetailContent.text = article.content
+
+    fun setData(article: Article) {
+//        mDetailTitle.text = article.title
+//        mDetailTimeStamp.text = article.publishedAt
+//        mDetailContent.text = article.content
+        mDetailWebView.loadUrl(article.url)
     }
+
     companion object {
         @JvmStatic
         fun newInstance() =
